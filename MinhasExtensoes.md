@@ -11,12 +11,15 @@
 - Code Runner
 - Auto Import
 - Auto Rename Tag
+- Code Spell Checker
+- Color Highlight
 
 ### Other
 - markdownlint
 - Better Comments
 - Bookmarks
 - open in browser
+- Path Intellisense
 
 ### Version Control
 - GitLens - Git Supercharged
