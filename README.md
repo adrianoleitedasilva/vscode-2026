@@ -1,249 +1,187 @@
-Workbench (interface do VS Code)
+## VS Code — Explicação Detalhada das Configurações
+
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Json File](https://img.shields.io/badge/Json_ConfigFile-D32936.svg?style=for-the-badge&logo=tools&logoColor=white) ![Estudo](https://img.shields.io/badge/Estudo-1a1a1a?style=for-the-badge&logo=quicklook&logoColor=white)
+
+Este documento descreve, de forma detalhada e prática, as configurações utilizadas no arquivo `settings.json` do Visual Studio Code, explicando **o que cada opção faz** e **qual o impacto visual ou funcional no editor**.
+
+---
+
+## 1. Workbench (Interface Geral do VS Code)
+
+```json
 "workbench.productIconTheme": "fluent-icons"
+```
 
-Define o tema de ícones “do produto” (ícones nativos do VS Code: arquivos básicos, ações, views).
+Define o tema de ícones internos do VS Code (ícones de ações, painéis e elementos nativos).
+O tema Fluent Icons segue o padrão visual Fluent Design da Microsoft, deixando a interface mais moderna e consistente.
 
-Na prática: muda o “visual padrão” de vários ícones do VS Code para o pacote Fluent (estilo Microsoft).
-
-Observação: isso é diferente do workbench.iconTheme (que afeta ícones do Explorer).
-
+```json
 "workbench.colorTheme": "Min Dark"
+```
+Define o tema de cores global do VS Code, incluindo fundo do editor, cores da interface e realce de sintaxe.
+O tema Min Dark oferece um visual escuro e minimalista, focado em reduzir distrações.
 
-Define o tema de cores geral do editor/IDE (fundo, cores de syntax highlighting, UI, etc.).
-
-Na prática: muda o esquema de cores para o tema chamado Min Dark (precisa estar instalado).
-
+```json
 "workbench.iconTheme": "material-icon-theme"
+```
+Define o tema de ícones exibidos no Explorer (árvore de arquivos e pastas).
+O Material Icon Theme fornece ícones específicos para cada tipo de arquivo, melhorando a identificação visual do projeto.
 
-Define o tema de ícones do Explorer (pastas/arquivos na árvore do projeto).
-
-Na prática: arquivos .js, .ts, package.json, etc. ganham ícones específicos do Material Icon Theme.
-
-É o que você mais “vê” na lateral ao navegar no projeto.
-
+```json
 "workbench.sideBar.location": "right"
+```
+Move a barra lateral (Explorer, Search, Source Control) para o lado direito da tela.
+Útil para quem prefere manter o código mais próximo do lado esquerdo ou trabalha com monitores ultrawide.
 
-Move a Side Bar (Explorer, Search, Source Control) para a direita.
-
-Padrão: esquerda.
-
-Útil para quem quer o código “começando” mais à esquerda (ou usa monitor ultrawide e prefere painel à direita).
-
+```json
 "workbench.activityBar.location": "top"
+```
+Move a Activity Bar (ícones de Explorer, Search, Git, Extensions) para o topo da interface, reduzindo ocupação lateral.
 
-Move a Activity Bar (a barra com ícones: Explorer, Search, Git, Extensions) para o topo.
-
-Padrão: lateral esquerda.
-
-Deixa a UI mais “compacta” nas laterais.
-
+```json
 "workbench.startupEditor": "newUntitledFile"
+```
+Ao iniciar o VS Code, abre diretamente um novo arquivo em branco, em vez da tela de boas-vindas ou arquivos recentes.
 
-Ao abrir o VS Code, em vez de mostrar “Welcome / Recent”, ele abre um arquivo novo sem título.
-
-Na prática: abre direto um editor vazio para você começar a digitar.
-
+```json
 "workbench.editor.labelFormat": "short"
+```
+Define o formato do nome exibido nas abas do editor.
+O modo short prioriza nomes mais curtos, evitando excesso de texto nas tabs.
 
-Controla como o VS Code mostra o “nome” das abas do editor.
-
-short: tende a mostrar só o nome do arquivo (ex.: index.ts) e resolve conflitos de nomes iguais de forma mais simples.
-
-Ajuda a deixar as tabs mais limpas.
-
+```json
 "workbench.statusBar.visible": false
+```
+Oculta a Status Bar (barra inferior), removendo informações como branch do Git, encoding e posição do cursor.
+Gera um visual mais limpo, porém com menos feedback visual imediato.
 
-Esconde a Status Bar (barra inferior com branch, erros, encoding, line/col, etc.).
-
-Na prática: ganha espaço vertical e um visual mais “clean”.
-
-Trade-off: você perde informação rápida (Git branch, problemas, etc.).
-
+```json
 "workbench.layoutControl.enabled": false
+```
+Desativa os controles visuais rápidos de layout do VS Code, reduzindo elementos na interface.
 
-Desativa o controle de layout (o “botão/controle” que facilita mudar layout pela UI).
+## 2. Editor de Código
 
-Na prática: menos elementos visuais e menos “atalhos” de layout na interface.
-
-Você ainda pode mudar layout por menu/atalhos, só não fica “exposto” no UI.
-
-Editor (comportamento do editor de código)
+```json
 "editor.cursorSmoothCaretAnimation": "on"
+```
+Ativa animações suaves ao mover o cursor, tornando a navegação mais fluida.
 
-Ativa animação suave ao mover o cursor (caret).
-
-Na prática: ao navegar com setas, mouse, etc., o cursor “desliza” suavemente.
-
+```json
 "editor.cursorBlinking": "smooth"
+```
+Desativa o minimapa do código, liberando espaço horizontal e reduzindo distrações visuais.
 
-Define o modo de “piscar” do cursor como suave.
-
-Na prática: a animação do cursor fica menos “seca” e mais fluida.
-
-"editor.minimap.enabled": false
-
-Desativa o minimap (mini mapa do código do lado direito).
-
-Na prática: ganha espaço lateral e reduz distração.
-
-Trade-off: perde navegação visual rápida por trechos.
-
+```json
 "editor.fontFamily": "JetBrains Mono"
+```
+Define a fonte principal do editor.
+A JetBrains Mono é otimizada para código, com excelente legibilidade.
 
-Define a fonte principal do editor como JetBrains Mono.
 
-Na prática: muda legibilidade, espaçamento e aparência do código.
-
-Precisa estar instalada no sistema.
-
+```json
 "editor.fontLigatures": true
+```
+Ativa ligaturas tipográficas, transformando combinações como =>, != e === em símbolos visuais mais elegantes.
 
-Ativa ligaturas tipográficas (combinações visuais, tipo =>, !=, === virarem símbolos mais “bonitos”).
-
-Na prática: o texto continua o mesmo, é só renderização.
-
-Bom para quem gosta de estética/legibilidade; alguns preferem desligado.
-
+```json
 "editor.fontSize": 16
+```
+Define o tamanho da fonte do editor, favorecendo conforto visual.
 
-Tamanho da fonte do editor em 16px.
-
-Na prática: melhora leitura (especialmente em monitores maiores).
-
+```json
 "editor.lineHeight": 1.6
+```
+Aumenta o espaçamento vertical entre linhas, deixando o código mais arejado e legível.
 
-Altura da linha (espaçamento vertical) como multiplicador.
-
-Na prática: código fica mais “arejado” (menos poluído visualmente).
-
-Pode reduzir a quantidade de linhas visíveis por tela.
-
+```json
 "editor.rulers": [90, 120]
+```
+Exibe linhas-guia verticais nas colunas 90 e 120, auxiliando no controle de largura de linhas conforme padrões de código.
 
-Mostra linhas-guia verticais nas colunas 90 e 120.
-
-Na prática: ajuda a manter largura de linha consistente (padrões de estilo).
-
-Ex.: “evitar linhas >120” e “ideal ~90”.
-
+```json
 "editor.renderLineHighlight": "gutter"
+```
+Destaca a linha atual apenas no gutter (região dos números de linha), mantendo o destaque discreto.
 
-Destaca a linha atual apenas no gutter (a “faixa” onde ficam números de linha/marcadores), não a linha inteira.
-
-Na prática: destaque mais discreto, menos “faixa luminosa” no código.
-
+```json
 "editor.semanticHighlighting.enabled": false
+```
+Desativa o realce semântico baseado em linguagem, mantendo apenas o destaque fornecido pelo tema.
 
-Desativa highlight semântico (cores baseadas no significado do símbolo via Language Server).
-
-Na prática: o VS Code não muda cor por “tipo real” (classe, interface, parâmetro, etc.) além do que o tema faz.
-
-Motivos comuns: preferir o tema “puro”, evitar inconsistências entre linguagens, ou reduzir ruído.
-
+```json
 "editor.scrollbar.horizontal": "hidden"
-
-Esconde a barra de rolagem horizontal.
-
-Na prática: visual mais clean.
-
-Você ainda pode rolar horizontalmente (trackpad/Shift+scroll), mas sem barra visível.
-
 "editor.scrollbar.vertical": "hidden"
+```
+Oculta a barra de rolagem horizontal, contribuindo para um visual mais limpo. 
+Oculta a barra de rolagem vertical, mantendo apenas a rolagem por mouse, teclado ou touchpad.
 
-Esconde a barra de rolagem vertical.
+## 3. Navegação e Comandos
 
-Mesmo efeito: menos UI aparente, rolagem continua possível.
-
-Navegação e comandos
+```json
 "breadcrumbs.enabled": false
+```
+Desativa os breadcrumbs (caminho do arquivo e símbolos no topo do editor), reduzindo elementos visuais.
 
-Desativa breadcrumbs (a trilha no topo do editor: src > components > Button.tsx).
 
-Na prática: remove uma linha da UI e reduz distração.
-
-Trade-off: perde navegação rápida por estrutura/arquivo.
-
+```json
 "window.commandCenter": false
+```
+Remove o Command Center da interface superior.
+Os comandos continuam acessíveis via Ctrl + Shift + P.
 
-Desativa o Command Center (um elemento/atalho visual na barra superior para comandos/pesquisa).
+## 4. Explorer (Árvore de Arquivos)
 
-Na prática: menos itens na barra do topo, UI mais minimalista.
-
-Você ainda tem Ctrl+Shift+P (Command Palette).
-
-Explorer (árvore de arquivos)
+```json
 "explorer.compactFolders": false
+```
+Desativa a compactação automática de pastas com apenas um nível, exibindo toda a hierarquia explicitamente.
 
-Desativa “compactação” de pastas com único filho.
-
-Com false: src/components/button aparece em níveis separados.
-
-Com true: pode aparecer como src/components/button numa “linha só”.
-
-Quem desliga geralmente quer ver a hierarquia explicitamente.
-
+```json
 "explorer.fileNesting.enabled": true
+```
+Ativa o agrupamento de arquivos relacionados no Explorer, reduzindo poluição visual.
 
-Ativa aninhamento de arquivos no Explorer (arquivos “relacionados” ficam agrupados).
+```json
+"explorer.fileNesting.patterns": {
+  "*.ts": "${capture}.js",
+  "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+  "*.jsx": "${capture}.js",
+  "*.tsx": "${capture}.ts",
+  "tsconfig.json": "tsconfig.*.json",
+  "package.json": "yarn.lock*, .eslint*, prettier*, tsconfig*, vite*, pnpm-lock*, package-lock*, bun.lock*",
+  ".env.local": ".env*",
+  ".env": ".env*"
+}
+```
 
-Na prática: arquivos derivados (map, min, d.ts, etc.) ficam “dentro” do arquivo principal.
+Define regras de aninhamento de arquivos derivados, como:
 
-"explorer.fileNesting.patterns": { ... }
+- arquivos compilados
+- arquivos de configuração
+- lockfiles
+- variações de .env
 
-Define as regras de aninhamento. O lado esquerdo é o “pai” e o lado direito são os “filhos” que serão agrupados.
+Isso mantém o Explorer mais organizado e focado nos arquivos principais.
 
-"*.ts": "${capture}.js"
-Para um arquivo.ts, o Explorer vai tentar aninhar arquivo.js embaixo dele (quando existir).
+## 5. Terminal Integrado
 
-"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts"
-Para arquivo.js, ele aninha:
-
-arquivo.js.map (source map)
-
-arquivo.min.js (build minificado)
-
-arquivo.d.ts (tipos TypeScript gerados)
-
-"*.jsx": "${capture}.js"
-Para arquivo.jsx, aninha arquivo.js (muitas ferramentas geram .js a partir de JSX).
-
-"*.tsx": "${capture}.ts"
-Para arquivo.tsx, aninha arquivo.ts (pode ocorrer em builds/estruturas específicas).
-
-"tsconfig.json": "tsconfig.*.json"
-Aninha tsconfig.app.json, tsconfig.node.json, etc. dentro do tsconfig.json.
-
-"package.json": "yarn.lock*, .eslint*, prettier*, tsconfig*, vite*, pnpm-lock*, package-lock*, bun.lock*"
-Dentro do package.json, aninha itens comuns de projeto:
-
-lockfiles (yarn.lock, pnpm-lock.yaml, package-lock.json, bun.lock*)
-
-configs (.eslintrc*, prettier*, tsconfig*, vite*)
-
-O * indica “qualquer variação” (ex.: .eslintrc.json, .eslintrc.cjs, etc.)
-
-".env.local": ".env*" e ".env": ".env*"
-Agrupa arquivos .env relacionados (ex.: .env.development, .env.production, .env.local).
-
-Resultado geral: Explorer mais organizado, reduz “poluição” de arquivos derivados.
-
-Terminal integrado
+```json
 "terminal.integrated.fontSize": 15
+```
+Define o tamanho da fonte do terminal integrado.
 
-Tamanho da fonte do terminal em 15px.
-
+```json
 "terminal.integrated.fontFamily": "JetBrains Mono"
+```
+Mantém a mesma fonte do editor no terminal, garantindo consistência visual.
 
-Fonte do terminal também em JetBrains Mono (consistência visual com o editor).
-
+```json
 "terminal.integrated.fontLigatures.enabled": true
+```
+Ativa ligaturas tipográficas no terminal, quando suportadas pela fonte.
 
-Liga ligaturas no terminal.
-
-Na prática: alguns símbolos podem renderizar com ligaturas (se a fonte suportar).
-
+```json
 "terminal.integrated.lineHeight": 1.2
-
-Ajusta espaçamento vertical no terminal.
-
-1.2 deixa o terminal mais “compacto” que o editor (que está 1.6).
+```
+Ajusta o espaçamento vertical das linhas no terminal, tornando-o mais compacto.
