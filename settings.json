@@ -2,12 +2,11 @@
   "breadcrumbs.enabled": false,
   "chat.agentsControl.enabled": false,
 
-  "workbench.colorTheme": "Eva Dark",
+  "workbench.colorTheme": "Min Dark",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.labelFormat": "short",
-  "workbench.activityBar.location": "top",
   "workbench.statusBar.visible": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
 
